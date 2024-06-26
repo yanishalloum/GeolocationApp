@@ -34,12 +34,12 @@ sealed interface ReceivedDataUiState {
 
 class ReceivedDataViewModel : ViewModel() {
     /** The mutable State that stores the status of the most recent request */
-    var receivedDataUiState: ReceivedDataUiState by mutableStateOf(ReceivedDataUiState.Loading) //loading is defined as the default marUiState value
+    var receivedDataUiState: ReceivedDataUiState by mutableStateOf(ReceivedDataUiState.Loading) //loading is defined as the default receivedDataUiState value
         private set
 
 
     /**
-     * Call getMarsPhotos() on init so we can display status immediately.
+     * Call getData() on init so we can display status immediately.
      */
     init {
         getData()
@@ -52,9 +52,9 @@ class ReceivedDataViewModel : ViewModel() {
     private fun getData() {
         viewModelScope.launch {
              try { //represents the state of the most recent web request
-                 val listResult = ReceivedDataApi.retrofitService.getPhotos() //saves the received response from the backend server in a val called listResult
+                 val listResult = ReceivedDataApi.retrofitService.getData() //saves the received response from the backend server in a val called listResult
                  receivedDataUiState = ReceivedDataUiState.Success(
-                    "Success: ${listResult.size} Mars photos retrieved"
+                    "Success: ${listResult.size} data retrieved"
                 )
             } catch (e: IOException) {
                  receivedDataUiState = ReceivedDataUiState.Error

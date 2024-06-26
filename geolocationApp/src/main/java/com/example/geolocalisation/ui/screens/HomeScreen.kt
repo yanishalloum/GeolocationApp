@@ -26,7 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.geolocalisation.R
-import com.example.geolocalisation.ui.theme.MarsPhotosTheme
+import com.example.geolocalisation.ui.theme.GeolocationAppTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.size
@@ -37,17 +37,20 @@ import androidx.compose.foundation.layout.fillMaxSize
 
 @Composable
 fun HomeScreen(
-    ReceivedDataUiState: ReceivedDataUiState,
+    receivedDataUiState: ReceivedDataUiState,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues
 ) {
-    when (ReceivedDataUiState) {
-        is ReceivedDataUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
-        is ReceivedDataUiState.Success -> ResultScreen(
-            ReceivedDataUiState.photos, modifier = modifier.fillMaxWidth()
+    when (receivedDataUiState) {
+        is ReceivedDataUiState.Loading -> LoadingScreen(
+            modifier = modifier.fillMaxSize()
         )
-
-        is ReceivedDataUiState.Error -> ErrorScreen( modifier = modifier.fillMaxSize())
+        is ReceivedDataUiState.Success -> ResultScreen(
+            receivedDataUiState.photos, modifier = modifier.fillMaxWidth()
+        )
+        is ReceivedDataUiState.Error -> ErrorScreen(
+            modifier = modifier.fillMaxSize()
+        )
     }
 
 }
@@ -92,7 +95,7 @@ fun ResultScreen(photos: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun ResultScreenPreview() {
-    MarsPhotosTheme {
+    GeolocationAppTheme {
         ResultScreen(stringResource(R.string.placeholder_result))
     }
 }

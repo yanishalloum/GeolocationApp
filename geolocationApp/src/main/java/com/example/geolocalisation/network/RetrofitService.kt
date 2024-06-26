@@ -17,7 +17,7 @@ private val retrofit = Retrofit.Builder()
 //defines how Retrofit communicates with the Web server through HTTP requests
 interface RetrofitService {
     @GET("photos") //indicates to Retrofit that it is a GET request and specifies the termination point "/photos" (add "/photos" to root url)
-    suspend fun getPhotos(): List<ReceivedData> //asynchronous method to get the response chain from the Web service
+    suspend fun getData(): List<ReceivedData> //asynchronous method to get the response chain from the Web service
 
 }
 
