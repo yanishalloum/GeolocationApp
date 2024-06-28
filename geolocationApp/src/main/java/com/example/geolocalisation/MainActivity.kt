@@ -16,7 +16,13 @@
 
 package com.example.geolocalisation
 
+import android.app.Activity
+import retrofit2.Call
 import android.os.Bundle
+import android.webkit.WebView
+import android.widget.ArrayAdapter
+import android.widget.ImageButton
+import android.widget.Spinner
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -25,8 +31,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.geolocalisation.ui.ReceivedDataApp
 import com.example.geolocalisation.ui.theme.GeolocationAppTheme
+import java.util.Properties
 
 class MainActivity : ComponentActivity() {
+
+    private var activity: Activity? = null
+    private var callBatiment: Call<Building>? = null
+    private var spinner: Spinner? = null
+    private var btn_chercher: ImageButton? = null
+    private var btn_scan: ImageButton? = null
+    private var adapter: ArrayAdapter<String>? = null
+    private var properties: Properties? = null
+    private var webView: WebView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)

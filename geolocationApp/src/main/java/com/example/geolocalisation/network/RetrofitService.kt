@@ -7,6 +7,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 
 private const val BASE_URL =
+    //"http://10.0.2.2:3000/apigeo/geolocalisation/"
     "http://10.0.2.2:3000/"
     //"https://android-kotlin-fun-mars-server.appspot.com"
 

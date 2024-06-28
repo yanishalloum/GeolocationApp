@@ -20,4 +20,8 @@
     <string name="retry">Retry</string>
     <string name="loading">Loading</string>
     <string name="received_data">Received Data</string>
+    <string name="msg_accueil">ME GEOLOCALISER</string>
+    <string name="yes">OK</string>
+    <string name="todo">Todo</string>
+    <string name="todo2">TODO\n</string>
 </resources>
