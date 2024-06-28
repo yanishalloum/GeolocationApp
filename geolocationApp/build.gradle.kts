@@ -87,9 +87,6 @@ dependencies {
     // Kotlin serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
-    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
-    implementation("com.google.code.gson:gson:2.6.2")
-
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

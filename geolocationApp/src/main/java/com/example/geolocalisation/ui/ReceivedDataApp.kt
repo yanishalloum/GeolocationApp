@@ -36,7 +36,6 @@ import com.example.geolocalisation.R
 import com.example.geolocalisation.ui.screens.HomeScreen
 import com.example.geolocalisation.ui.screens.ReceivedDataViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReceivedDataApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -49,7 +48,7 @@ fun ReceivedDataApp() {
         ) {
             val receivedDataViewModel: ReceivedDataViewModel = viewModel()
             HomeScreen(
-                receivedDataUiState = receivedDataViewModel.receivedDataUiState,
+                ReceivedDataUiState = receivedDataViewModel.receivedDataUiState,
                 contentPadding = it,
             )
         }

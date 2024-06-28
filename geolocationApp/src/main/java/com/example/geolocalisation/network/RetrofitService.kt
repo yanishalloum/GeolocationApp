@@ -7,7 +7,8 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 
 private const val BASE_URL =
-    "https://android-kotlin-fun-mars-server.appspot.com"
+    "http://10.0.2.2:3000/"
+    //"https://android-kotlin-fun-mars-server.appspot.com"
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(Json.asConverterFactory("application/json".toMediaType())) //turns the received JSON into a kotlin object
@@ -16,8 +17,8 @@ private val retrofit = Retrofit.Builder()
 
 //defines how Retrofit communicates with the Web server through HTTP requests
 interface RetrofitService {
-    @GET("photos") //indicates to Retrofit that it is a GET request and specifies the termination point "/photos" (add "/photos" to root url)
-    suspend fun getData(): List<ReceivedData> //asynchronous method to get the response chain from the Web service
+    @GET("dataToApp") //indicates to Retrofit that it is a GET request and specifies the termination point "/photos" (add "/photos" to root url)
+    suspend fun getJson(): List<ReceivedData> //asynchronous method to get the response chain from the Web service
 
 }
 

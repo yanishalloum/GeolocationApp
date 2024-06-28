@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 data class ReceivedData (
     //keys of the JSON file
     val id: String,
-    @SerialName(value = "img_src")
-    val imgSrc: String //to respect the camelCase notation
+    @SerialName(value = "name")
+    val name: String //to respect the camelCase notation
 )
